@@ -1,0 +1,5 @@
+.compact-grid { grid-template-rows: 1fr; }
+@media (min-width:651px) and (max-width:1024px) {
+  .compact-grid { grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,1fr); height:calc(100svh - 226px); }
+}
+@media (max-width:650px) { .compact-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5,1fr); } }
