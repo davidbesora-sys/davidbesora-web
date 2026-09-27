@@ -2,39 +2,123 @@
 <html lang="es" translate="no">
 <head>
 <meta charset="utf-8">
-<meta name="google" content="notranslate">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="David Besora — NY Video, 2007">
-<title>NY Video — David Besora</title>
-<link rel="stylesheet" href="../style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NY Pan — David Besora</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../site-fixes.css">
 <style>
-.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
-.video-item{margin:0}.video-item a{display:block;text-decoration:none;color:inherit}
-.video-title{margin:0 0 14px;font-size:clamp(24px,2.2vw,34px);font-weight:400;line-height:1.15}
-.video-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#111}
-.video-cover img{display:block;width:100%;height:100%;object-fit:cover}
-.video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:rgba(0,0,0,.78);color:#fff;display:grid;place-items:center;font-size:24px}
-@media(max-width:800px){.video-grid{grid-template-columns:1fr;gap:28px}}
+/* NY Pan: panoramic thumbnails, edge-to-edge like the other projects */
+.project-grid {
+  height:auto;
+  min-height:0;
+  grid-template-columns:repeat(5,1fr);
+  grid-template-rows:none;
+  grid-auto-rows:auto;
+  gap:0 !important;
+  background:var(--ink);
+}
+.tile {
+  aspect-ratio:1920 / 664;
+}
+.tile img {
+  object-fit:cover;
+}
+@media (min-width:651px) and (max-width:1024px) {
+  .project-grid {
+    height:auto;
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows:none;
+    grid-auto-rows:auto;
+    gap:0 !important;
+  }
+}
+@media(max-width:650px) {
+  .project-grid {
+    height:auto;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:none;
+    grid-auto-rows:auto;
+    gap:0 !important;
+  }
+}
 </style>
-<link rel="stylesheet" href="../site-fixes.css"></head>
+<style>
+/* NY Pan: use the same dynamic gallery system as the other projects, with no gutters. */
+.project-grid.dynamic-grid {
+  height:auto;
+  min-height:0;
+  grid-template-columns:repeat(6,1fr);
+  grid-template-rows:none;
+  grid-auto-rows:auto;
+  gap:0 !important;
+}
+.project-grid.dynamic-grid .tile {
+  aspect-ratio:1920 / 664;
+}
+@media (min-width:651px) and (max-width:1024px) {
+  .project-grid.dynamic-grid {
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows:none;
+    grid-auto-rows:auto;
+    gap:0 !important;
+  }
+}
+@media(max-width:650px) {
+  .project-grid.dynamic-grid {
+    grid-template-columns:repeat(2,1fr) !important;
+    grid-template-rows:none !important;
+    grid-auto-rows:auto;
+    gap:0 !important;
+  }
+}
+</style>
+</head>
 <body>
 <header class="masthead">
-<a class="name" href="../archive.html" aria-label="David Besora, índice"><img src="../logo.png" alt="David Besora" /></a>
-
-
+  <a class="name" href="../archive.html">
+    <img src="../logo.png" alt="David Besora">
+  </a>
 </header>
-<main id="top">
-<section class="intro" aria-labelledby="project-title">
-<div class="intro-meta"><span>13 / 27</span><span>NY Video</span></div>
-<h1 id="project-title">NY Video</h1>
-<div class="intro-bottom"><span>2007</span><span>2 videos</span></div>
-</section>
-<section class="video-grid" id="work" aria-label="Vídeos de NY Video">
-<figure class="video-item"><a href="https://youtu.be/P6lcrWvuKwE" target="_blank" rel="noopener" aria-label="Obrir Subway a YouTube"><h2 class="video-title">Subway</h2><div class="video-cover"><img src="https://img.youtube.com/vi/P6lcrWvuKwE/maxresdefault.jpg" alt="Subway — David Besora"><span class="video-play" aria-hidden="true">▶</span></div></a></figure>
-<figure class="video-item"><a href="https://youtu.be/QkLZAbTV6hE" target="_blank" rel="noopener" aria-label="Obrir End of summer a YouTube"><h2 class="video-title">End of summer</h2><div class="video-cover"><img src="https://img.youtube.com/vi/QkLZAbTV6hE/maxresdefault.jpg" alt="End of summer — David Besora"><span class="video-play" aria-hidden="true">▶</span></div></a></figure>
-</section>
-<section class="project-footer" id="about"><span>Archive / 1997—2015</span><a href="../archive.html">Back to index</a><span>Previous: 2007 / NY Textures ←</span></section>
+<main>
+  <section class="intro">
+    <div class="intro-meta"><span>14 / 27</span><span>NY Pan</span></div>
+    <h1>NY Pan</h1>
+    <div class="intro-bottom"><span>2007</span><span>18</span></div>
+  </section>
+
+  <section class="project-grid dynamic-grid" id="work"></section>
+
+  <section class="project-footer" id="about">
+    <span>Archive / 1997—2015</span>
+    <a href="../archive.html">Back to index</a>
+    <span>Previous: NY Textures ←</span>
+  </section>
 </main>
-<footer id="contact"><a href="tel:+34609701495">+34 609 701 495</a><a href="mailto:davidbesora@gmail.com">davidbesora@gmail.com</a><a href="../cv.html">CV</a><a href="https://www.instagram.com/david.besora/" rel="noopener" target="_blank">Instagram</a><span>© David Besora</span></footer>
+
+<div class="viewer" role="dialog" aria-modal="true">
+  <button class="close" type="button">Close ×</button>
+  <img class="viewer-image" src="" alt="">
+  <div class="viewer-bar"><span>NY Pan / 2007</span><span class="counter"></span></div>
+  <button class="viewer-control previous" type="button">←</button>
+  <button class="viewer-control toggle" type="button">▶</button>
+  <button class="viewer-control next" type="button">→</button>
+</div>
+
+<footer id="contact">
+  <a href="tel:+34609701495">+34 609 701 495</a>
+  <a href="mailto:davidbesora@gmail.com">davidbesora@gmail.com</a>
+  <a href="../cv.html">CV</a>
+  <a href="https://www.instagram.com/david.besora/" rel="noopener" target="_blank">Instagram</a>
+  <span>© David Besora</span>
+</footer>
+
+<script>
+window.project={
+  title:'NY Pan',
+  year:'2007',
+  photos:['DSC3952-pan.jpg', 'DSC4060-pan.jpg', 'DSC3907-pan.jpg', 'DSC4328-pan.jpg', 'DSC4011-pan.jpg', '15.jpg', 'DSC3816-pan.jpg', 'DSC4265-pan.jpg', 'DSC4332-pan.jpg', 'DSC3963-pan.jpg', 'DSC4235-pan.jpg', 'DSC4278-pan.jpg', 'DSC4324-pan.jpg', 'DSC4211-pan.jpg', 'DSC4255-pan.jpg', 'DSC4218-pan.jpg', 'DSC3925-pan.jpg', 'DSC3968-pan.jpg']
+}
+</script>
+<script src="../viewer-core.js"></script>
 </body>
 </html>
