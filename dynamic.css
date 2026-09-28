@@ -1,6 +1,58 @@
-.dynamic-grid { grid-template-columns:repeat(var(--columns),1fr); grid-template-rows:repeat(var(--rows),1fr); }
-.dynamic-grid:has(.tile:nth-child(8):last-child) { grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,1fr); }
-@media (min-width:651px) and (max-width:1024px) {
-  .dynamic-grid { height:auto; min-height:0; grid-template-columns:repeat(4,1fr); grid-template-rows:none; grid-auto-rows:minmax(180px,1fr); }
+.dynamic-grid {
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
 }
-@media(max-width:650px){.dynamic-grid{grid-template-columns:repeat(2,1fr)!important;grid-template-rows:repeat(4,1fr)!important;min-height:0}}
+
+.dynamic-grid:has(.tile:nth-child(8):last-child) {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+@media (min-width: 651px) and (max-width: 1024px) {
+  .dynamic-grid {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: none;
+    grid-auto-rows: minmax(180px, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .dynamic-grid {
+    min-height: 0;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: none !important;
+    grid-auto-rows: 1fr !important;
+  }
+
+  /* 5 fotos: 1 foto por línea, como NY 16:9 */
+  .dynamic-grid:has(.tile:nth-child(5):last-child) {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(5, 1fr) !important;
+  }
+
+  /* 8 fotos: 2 columnas x 4 líneas */
+  .dynamic-grid:has(.tile:nth-child(8):last-child) {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(4, 1fr) !important;
+  }
+
+  /* 9 fotos: 3 columnas x 3 líneas */
+  .dynamic-grid:has(.tile:nth-child(9):last-child) {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(3, 1fr) !important;
+  }
+
+  /* 10 fotos: 2 columnas x 5 líneas */
+  .dynamic-grid:has(.tile:nth-child(10):last-child) {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(5, 1fr) !important;
+  }
+
+  /* 18 fotos: 3 columnas x 6 líneas */
+  .dynamic-grid:has(.tile:nth-child(18):last-child) {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(6, 1fr) !important;
+  }
+}
