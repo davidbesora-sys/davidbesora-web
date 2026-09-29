@@ -1,3 +1,5 @@
+/* Dynamic project grid */
+
 .dynamic-grid {
   grid-template-columns: repeat(var(--columns), 1fr);
   grid-template-rows: repeat(var(--rows), 1fr);
@@ -19,42 +21,64 @@
 }
 
 @media (max-width: 650px) {
-  .dynamic-grid {
-    min-height: 0;
-    height: calc(100svh - 233px);
+  .project-grid.dynamic-grid {
+    display: grid !important;
+    height: calc(100svh - 233px) !important;
+    min-height: 0 !important;
+    max-height: calc(100svh - 233px) !important;
+    overflow: hidden !important;
     grid-template-columns: repeat(2, 1fr) !important;
     grid-template-rows: none !important;
     grid-auto-rows: 1fr !important;
-    overflow: hidden;
   }
 
-  /* 5 fotos: 1 foto por línea, como NY 16:9 */
-  .dynamic-grid:has(.tile:nth-child(5):last-child) {
+  /* 5 fotos: 1 foto por línea */
+  .project-grid.dynamic-grid:has(.tile:nth-child(5):last-child) {
     grid-template-columns: 1fr !important;
     grid-template-rows: repeat(5, minmax(0, 1fr)) !important;
+    grid-auto-rows: minmax(0, 1fr) !important;
+  }
+
+  .project-grid.dynamic-grid .tile {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    aspect-ratio: auto !important;
+  }
+
+  .project-grid.dynamic-grid .tile img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
   }
 
   /* 8 fotos: 2 columnas x 4 líneas */
-  .dynamic-grid:has(.tile:nth-child(8):last-child) {
+  .project-grid.dynamic-grid:has(.tile:nth-child(8):last-child) {
     grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: repeat(4, 1fr) !important;
+    grid-template-rows: repeat(4, minmax(0, 1fr)) !important;
   }
 
   /* 9 fotos: 3 columnas x 3 líneas */
-  .dynamic-grid:has(.tile:nth-child(9):last-child) {
+  .project-grid.dynamic-grid:has(.tile:nth-child(9):last-child) {
     grid-template-columns: repeat(3, 1fr) !important;
-    grid-template-rows: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
   }
 
   /* 10 fotos: 2 columnas x 5 líneas */
-  .dynamic-grid:has(.tile:nth-child(10):last-child) {
+  .project-grid.dynamic-grid:has(.tile:nth-child(10):last-child) {
     grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: repeat(5, 1fr) !important;
+    grid-template-rows: repeat(5, minmax(0, 1fr)) !important;
   }
 
   /* 18 fotos: 3 columnas x 6 líneas */
-  .dynamic-grid:has(.tile:nth-child(18):last-child) {
+  .project-grid.dynamic-grid:has(.tile:nth-child(18):last-child) {
     grid-template-columns: repeat(3, 1fr) !important;
-    grid-template-rows: repeat(6, 1fr) !important;
+    grid-template-rows: repeat(6, minmax(0, 1fr)) !important;
   }
 }
