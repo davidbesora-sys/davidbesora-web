@@ -34,7 +34,7 @@
   </div>
 </section>
 
-<section class="project-grid dynamic-grid" id="work"></section>
+<section class="project-grid compact-grid" id="work"></section>
 
 <section class="project-footer" id="about">
   <span>Archive / 1997—2016</span>
