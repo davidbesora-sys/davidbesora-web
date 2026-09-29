@@ -21,15 +21,17 @@
 @media (max-width: 650px) {
   .dynamic-grid {
     min-height: 0;
+    height: calc(100svh - 233px);
     grid-template-columns: repeat(2, 1fr) !important;
     grid-template-rows: none !important;
     grid-auto-rows: 1fr !important;
+    overflow: hidden;
   }
 
   /* 5 fotos: 1 foto por línea, como NY 16:9 */
   .dynamic-grid:has(.tile:nth-child(5):last-child) {
     grid-template-columns: 1fr !important;
-    grid-template-rows: repeat(5, 1fr) !important;
+    grid-template-rows: repeat(5, minmax(0, 1fr)) !important;
   }
 
   /* 8 fotos: 2 columnas x 4 líneas */
