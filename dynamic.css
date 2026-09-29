@@ -12,12 +12,19 @@
   }
 
   .project-grid.dynamic-grid .tile {
+    width: 100% !important;
     height: 160px !important;
-    min-height: 160px !important;
+    min-height: 0 !important;
+    max-height: 160px !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
   }
 
-  .project-grid.dynamic-grid:has(.tile:nth-child(5):last-child) {
-    grid-template-columns: 1fr !important;
-    grid-auto-rows: 160px !important;
+  .project-grid.dynamic-grid .tile img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+    display: block !important;
   }
 }
