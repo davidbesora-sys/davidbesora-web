@@ -1,4 +1,5 @@
-.project-grid.dynamic-grid {
+@media (max-width: 650px) {
+  .project-grid.dynamic-grid {
     display: grid !important;
     height: auto !important;
     min-height: 0 !important;
@@ -6,5 +7,17 @@
     overflow: visible !important;
     grid-template-columns: repeat(2, 1fr) !important;
     grid-template-rows: none !important;
-    grid-auto-rows: minmax(150px, auto) !important;
+    grid-auto-rows: 180px !important;
+    align-content: start !important;
+  }
+
+  .project-grid.dynamic-grid .tile {
+    height: 180px !important;
+    min-height: 180px !important;
+  }
+
+  .project-grid.dynamic-grid:has(.tile:nth-child(5):last-child) {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: 180px !important;
+  }
 }
