@@ -7,17 +7,17 @@
     overflow: visible !important;
     grid-template-columns: repeat(2, 1fr) !important;
     grid-template-rows: none !important;
-    grid-auto-rows: 180px !important;
+    grid-auto-rows: 160px !important;
     align-content: start !important;
   }
 
   .project-grid.dynamic-grid .tile {
-    height: 180px !important;
-    min-height: 180px !important;
+    height: 160px !important;
+    min-height: 160px !important;
   }
 
   .project-grid.dynamic-grid:has(.tile:nth-child(5):last-child) {
     grid-template-columns: 1fr !important;
-    grid-auto-rows: 180px !important;
+    grid-auto-rows: 160px !important;
   }
 }
