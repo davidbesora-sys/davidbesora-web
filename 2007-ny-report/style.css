@@ -19,10 +19,30 @@
     padding:16px
   }
 
-  .project-grid.ny-report-grid{
+  body .project-grid.ny-report-grid{
+    display:grid!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
     grid-template-columns:repeat(2,1fr)!important;
     grid-template-rows:repeat(28,16vw)!important;
-    grid-auto-rows:auto
+    grid-auto-rows:16vw!important;
+  }
+
+  body .project-grid.ny-report-grid .tile{
+    width:100%!important;
+    height:16vw!important;
+    min-height:0!important;
+    max-height:16vw!important;
+    overflow:hidden!important;
+  }
+
+  body .project-grid.ny-report-grid .tile img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
   }
 
   .project-footer{
